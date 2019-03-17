@@ -1,0 +1,73 @@
+<mat-sidenav-container class="sidenav-container"  >
+  <mat-sidenav #drawer class="sidenav"  fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async)? 'over' : 'side'"  
+      [opened]="!(isHandset$ | async)"  style="  border:none;" >
+    <mat-toolbar style="background: #3949AB; color:white;" *ngIf="flag">Menu</mat-toolbar>
+    <mat-toolbar style="background: #3949AB; color:white;" *ngIf="flag1">Hello,{{obUser.name}}</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item pageScroll  routerLink="/"  style="color:white;" ><div matTooltip="Home" style="display: flex; align-items: center;" ><mat-icon  >home</mat-icon>&nbsp;Home</div></a>
+      <a mat-list-item pageScroll  href="#eventSelector" style="color:white;" ><div matTooltip="Events" style="display: flex; align-items: center;"><mat-icon  >event</mat-icon>&nbsp;Events</div></a>
+      <a mat-list-item  pageScroll  href="#gallerySelector" style="color:white;" ><div matTooltip="Gallery" style="display: flex; align-items: center;"><mat-icon  >insert_photo</mat-icon>&nbsp;Gallery</div></a>
+      
+      <a mat-list-item  style="color:white;" ><div matTooltip="Contact Us" style="display: flex; align-items: center;"><mat-icon  >mail_outline</mat-icon>&nbsp;Contact Us</div></a>
+
+      <a mat-list-item *ngIf="flag1" style="color:white;" ><div (click)="getDanger()" [matMenuTriggerFor]="dangerButton" matTooltip="Teams I am In" style="display: flex; align-items: center;"><mat-icon  >check_circle_outline</mat-icon>&nbsp;Registered Events</div></a>
+
+     
+      </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content style="background: black;">
+   
+    <mat-toolbar color="primary"   style="position:relative; ">
+      
+      <button type="button" aria-label="Toggle sidenav"  mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon"  matTooltip="Menu" >menu</mat-icon>
+        
+      </button>
+      <span>MyFest</span>
+     <span class="example-spacer"></span>
+     <div class="example-icon" routerLink="/signup" style=" padding:none; " matTooltip="SignUp" *ngIf="flag">
+     <mat-icon >person_add </mat-icon>Signup</div>
+    <mat-icon class="example-icon"  routerLink="/login"   matTooltip="Login" *ngIf="flag">exit_to_app</mat-icon>
+    
+     <mat-icon class="example-icon"  [matMenuTriggerFor]="menu" (click)="getNotifiedd()" matBadge={{len}}   matBadgePosition="above after" matBadgeColor="warn" matTooltip="Notifications" *ngIf="flag1">notifications</mat-icon>
+      <mat-icon class="example-icon"  matTooltip="Do you want to logout ?" *ngIf="flag1" (click)="logoutHome()">logout</mat-icon>
+    
+      </mat-toolbar>
+
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<style>
+  #myspan{
+    float: left ;
+
+  }
+  </style>
+<mat-menu #menu="matMenu" style="min-width: 15% !important;">
+   <span id="myspan" *ngFor="let noti of notifications" >
+  <mat-icon color="accent">person_add</mat-icon>
+
+    <span (click)="openDialog(noti)"><a  style="text-decoration:none;">{{noti.teamLeaderName}} has sent you a request</a><hr> 
+    </span>
+    </span>
+</mat-menu>
+
+<mat-menu #dangerButton="matMenu" >
+  <a *ngFor="let ob of danger">
+    <a routerLink={{showD+ob.teamId}}>
+  <button mat-menu-item >
+    <mat-icon color="primary">check_circle_outline</mat-icon>
+    <span>{{ob.eventName}}</span>
+  
+  </button></a></a>
+
+</mat-menu>
+<div id="myhome">
+
+</div>
+<router-outlet></router-outlet>
+      <app-mainhome></app-mainhome>
+      <app-event></app-event>
+      <app-gallery></app-gallery>

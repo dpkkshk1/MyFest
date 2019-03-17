@@ -1,0 +1,112 @@
+<div class="container-fluid"  style="margin-top:15px; margin-bottom: 15px;">
+    <div class="row">
+      <div class="offset-md-2 col-md-10">
+        <mat-card>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12 col-md-3 col-12"   style="margin-top:15px; margin-bottom: 15px;">
+          <mat-card class="example-card" >
+
+              <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title matTooltip="Event Name">{{eventSelected.eventName}}</mat-card-title>
+                  <mat-card-subtitle matTooltip="SuperVisor">By&nbsp;{{eventSelected.superVisor.superName}}</mat-card-subtitle>
+                </mat-card-header>
+                <img  mat-card-image src={{photoPath+eventSelected.photoPath+photoSuffix}} style="height:300px;" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                    <hr>
+                    <div class="example-container"  >
+
+                      </div>
+                      </mat-card-content>
+
+            </mat-card>
+            
+          
+          
+            </div>
+            <div class=" col-sm-12 col-12 col-md-8">
+                <mat-card>
+                    <mat-card-content>
+                        <table class="table table-responsive-sm">
+                            <thead>
+                                <tr>
+                                  <th scope="col">Team</th>
+                                  <th scope="col">Leader</th>
+                                   <th scope="col">Members</th>
+                                  <th scope="col">Status</th> 
+                                  <th scope="col"></th> 
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr  *ngIf="rowSpanFlag; then  trueBlock ; else falseBlock ">
+                                  
+                                  </tr>
+                              
+                                                               <tr  *ngFor="let ob of obArray" >
+                                    <td></td>
+                                    <td></td>
+
+                                      <td>{{selectedEvent.memberName[ob]}}</td>
+                                      <td *ngIf="status==0 ">Request Pending</td>
+              
+                                    <td *ngIf="status==0  && selectedEvent.leaderId==obUser.userId"> <button (click)="deleteRequest(selectedEvent.teamId,selectedEvent.userId[ob])" mat-button color="warn"  matTooltip="Edit Request" >Remove</button></td>
+
+                                      <td *ngIf="status==1  ">Request Accepted</td>                                      
+                                      <td *ngIf="status==1 "></td>
+                                    </tr>
+                                    <tr>
+                                      <td colspan="4" *ngIf="flag" style="color:red;">You have Added only {{obArrayLength}} Members And Min Team Size is {{this.eventSelected.minSize}} Please Add {{(this.eventSelected.minSize-obArrayLength)}} Members To complete your Team</td>
+                                    </tr>
+                                    <tr *ngIf="flag33" >
+                                    
+                                      <td colspan="3"  *ngIf="flag">
+                                        <mat-form-field style="min-width:100% !important;">
+
+                                          <input [(ngModel)]="emailId" name="emailId" matInput placeholder="Enter Email" >
+
+
+                                        </mat-form-field>
+                                      </td>
+                                      <td  *ngIf="flag"><button mat-button color="primary" type="submit" (click)="onSubmit(selectedEvent.teamId,selectedEvent.eventId)" matTooltip="Edit Request"  >Add</button>
+                                        
+                                        <td></td>
+                                        <td></td>
+                                      </tr>
+                              </tbody>
+                             
+                             
+                                 
+                                  
+                                  
+                             
+                        </table>
+                        <ng-template #trueBlock>
+                          <td >{{selectedEvent.teamName}}</td>
+                          <td >{{selectedEvent.leaderName}}</td>
+                            <td>{{selectedEvent.memberName[0]}}</td>
+                            <td *ngIf="selectedEvent.status[0]==0">Request Pending</td>
+                            <td *ngIf="selectedEvent.status[0]==1">Request Accepted</td>
+                            <td *ngIf="selectedEvent.status[0]==0"> <button (click)="deleteRequest(selectedEvent.teamId,selectedEvent.userId[0])" mat-button color="warn"  matTooltip="Edit Request" >Remove</button></td>
+                            <td *ngIf="selectedEvent.status[0]==1"></td>
+                          </ng-template>
+                        <ng-template #falseBlock>
+                          <td >{{selectedEvent.teamName}}</td>
+                          <td >{{selectedEvent.leaderName}}</td>
+                            <td>{{selectedEvent.memberName[0]}}</td>
+                            <td *ngIf="selectedEvent.status[0]==0">Request Pending</td>
+                            <td *ngIf="selectedEvent.status[0]==0"> <button (click)="deleteRequest(selectedEvent.teamId,selectedEvent.userId[0])" mat-button color="warn"  matTooltip="Edit Request" >Remove</button></td>
+                           
+                            <td *ngIf="selectedEvent.status[0]==1">Request Accepted</td>
+                            <td *ngIf="selectedEvent.status[0]==1"></td>
+                        </ng-template>
+                      </mat-card-content>
+                </mat-card>
+            </div>
+            </div>
+            </div>
+            </mat-card>
+            </div>
+            </div>
+            </div>
+          

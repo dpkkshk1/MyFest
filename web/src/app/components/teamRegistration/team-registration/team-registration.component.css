@@ -1,0 +1,28 @@
+
+.example-header-image {
+    background-image: url('https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjiwoT8gqTgAhWbV30KHW4iAxAQjRx6BAgBEAU&url=http%3A%2F%2Fchittagongit.com%2Ficon%2Ffacebook-user-icon-22.html&psig=AOvVaw00qyFo4-FJei4B7fi3S7Mx&ust=1549436517035869');
+    background-size: cover;
+  }
+
+  .example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+  
+  .example-container form {
+    margin-bottom: 20px;
+  }
+  
+  .example-container form > * {
+    margin: 5px 0;
+  }
+  
+  .example-container .mat-radio-button {
+    margin: 0 5px;
+  }
+
+  

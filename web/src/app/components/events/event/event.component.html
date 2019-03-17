@@ -1,0 +1,39 @@
+
+<div class="container-fluid" id="eventSelector" style="margin-top:15px; margin-bottom: 15px;">
+  <div class="row">
+    <div class="offset-md-2 col-md-10">
+      <mat-card>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4" *ngFor="let list of listEvents"  style="margin-top:15px; margin-bottom: 15px;">
+              <mat-card class="example-card">
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title matTooltip="Event Name">{{list.eventName}}</mat-card-title>
+                    <mat-card-subtitle matTooltip="SuperVisor">By&nbsp;{{list.superVisor.superName}}</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image src={{photoPath+list.photoPath+photoSuffix}} style="height:300px;" alt="Photo of a Shiba Inu">
+                  <mat-card-content>
+                    <hr>
+                        <div  matTooltip="Team Size" class="example-icon" style=" padding:none;display: flex; align-items: center; " >
+                            <mat-icon style="color:cornflowerblue;" >group </mat-icon>&nbsp;{{list.minSize}}</div><hr>
+                            <div  matTooltip="Registration Charges" class="example-icon" style=" padding:none;display: flex; align-items: center; " >
+                                <mat-icon style="color:cornflowerblue;" >attach_money</mat-icon>{{list.fee}}</div><hr>
+                                <div  matTooltip="Location of Event" class="example-icon" style=" padding:none;display: flex; align-items: center; " >
+                                    <mat-icon style="color:cornflowerblue;" >location_city</mat-icon>&nbsp;{{list.location}}</div><hr>
+                                  <div  matTooltip="Contact SuperVisor" class="example-icon" style=" padding:none;display: flex; align-items: center; " >
+                                   <mat-icon style="color:cornflowerblue;" >email</mat-icon>&nbsp;{{list.superVisor.superEmail}}</div><hr>
+                     
+                                  </mat-card-content>
+                 
+                      <button style="width:100%;" (click)="navToRegistration(list.eventId)" mat-flat-button color="primary">Register</button>
+                  
+                </mat-card>
+                
+          </div>
+        </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

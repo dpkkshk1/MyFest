@@ -1,0 +1,78 @@
+<div class="container-fluid" *ngIf="flag" id="eventSelector" style="margin-top:15px; margin-bottom: 15px;">
+    <div class="row">
+      <div class="offset-md-2 col-md-10">
+        <mat-card>
+<div class="container-fluid">
+    <div class="row">
+      <div class="offset-md-4 col-md-4"   style="margin-top:15px; margin-bottom: 15px;">
+          <mat-card class="example-card" >
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title matTooltip="Event Name">{{selectedEvent.eventName}}</mat-card-title>
+                <mat-card-subtitle matTooltip="SuperVisor">By&nbsp;{{selectedEvent.superVisor.superName}}</mat-card-subtitle>
+              </mat-card-header>
+              <img  mat-card-image src={{photoPath+selectedEvent.photoPath+photoSuffix}} style="height:300px;" alt="Photo of a Shiba Inu">
+              
+              <mat-card-content>
+                <hr>
+                <div class="example-container"  >
+       
+                    
+                 
+                    <mat-form-field *ngIf="unReg"
+                    [hideRequiredMarker]="options.value.hideRequired"  style="width:100%;"
+                    [floatLabel]="options.value.floatLabel">
+                  <input  [(ngModel)]="obTeam.name" name="name" matInput placeholder="Enter Team Name" required>
+                </mat-form-field>
+                  <button *ngIf="unReg" (click)="registerTeam()" style="width:100%;"  mat-flat-button color="primary">Register Team</button>
+              
+                  <button *ngIf="successReg"  (click)="formTeamNow()" style="width:100%;"  mat-flat-button color="accent">Form Team Now</button>
+              <hr>
+                  <button *ngIf="successReg" (click)="formTeamLater()" style="width:100%;"  mat-flat-button color="warn">Form Team Later</button>
+           <!--         <div *ngIf="formNow">
+
+
+                  <div *ngFor="let ob of minSize"  class="row">
+                    <form [formGroup]="profileForm" (ngSubmit)="onSubmit(ob)" >
+                 <div class="col">   <mat-form-field  
+                  [hideRequiredMarker]="options.value.hideRequired"  style="width:100%;"
+                  [floatLabel]="options.value.floatLabel">
+                 
+
+               <input id="name+ob" formControlName={{abc+ob}} id="name+ob" name="name+ob" matInput placeholder="Enter Joinee Email" required />
+
+                
+                </mat-form-field> </div>
+                <div class="">
+                  <button type="submit"><mat-icon  tabindex="0"  matTooltip="send Request"   style="float:right;">add</mat-icon></button>
+                  <mat-icon  tabindex="0"  matTooltip="Edit Request"   style="float:right;">add</mat-icon></div>
+              </form>
+              </div> 
+              
+
+
+
+
+
+              <button (click)="formTeamLater()" style="width:100%;"  mat-flat-button color="warn">Go Back</button>
+            </div>  -->
+                  </div>
+                
+            </mat-card-content>
+              
+                
+            </mat-card>
+            
+      </div>
+    
+      
+  
+      
+
+    </div>
+    </div>
+  
+    </mat-card>
+    </div>
+    </div>
+    </div>

@@ -1,0 +1,37 @@
+
+<style>
+  width
+  </style>
+ <div class="container" ><div class="row"><div class="col-md-6"><h2 matTooltip="Team Name" mat-dialog-title><mat-icon color="warn">bubble_chart</mat-icon>{{this.data.noti.teamName}}</h2>
+ </div>
+ <div class="col-md-6"><h2 matTooltip="Leader Name" mat-dialog-title><mat-icon color="warn">face</mat-icon>{{this.data.noti.teamLeaderName}}</h2></div>
+
+</div></div>
+ 
+<div mat-dialog-content>
+ <style>
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+</style>
+<mat-card class="example-card"  style="width:350px;">
+
+    <mat-card class="example-card"  >
+        <mat-card-header >
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title matTooltip="Event Name">{{eventSelected.eventName}}</mat-card-title>
+          <mat-card-subtitle matTooltip="SuperVisor">By&nbsp;{{eventSelected.superVisor.superName}}</mat-card-subtitle>
+        </mat-card-header>
+        <img  mat-card-image src={{photoPath+eventSelected.photoPath+photoSuffix}} style="height:250px; " alt="Photo of a Shiba Inu">
+        <button  (click)="requestAccept()" style="width:100%;"  mat-flat-button color="primary"><mat-icon >thumb_up</mat-icon>Accept</button>
+        <hr>
+            <button  (click)="requestDelete()" style="width:100%;"  mat-flat-button color="warn"><mat-icon>thumb_down</mat-icon>Reject</button>
+        <mat-card-content>
+          
+      </mat-card-content>
+
+</mat-card>
+</mat-card>
+ 
+</div>
